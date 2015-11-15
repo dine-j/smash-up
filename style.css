@@ -1,16 +1,26 @@
 body {
-	background: url("background-image.jpg"), rgba(255, 255, 255, 0.8);
-	background-size: cover, 900px;
+	background: url(""), url("background-image.jpg");
+	background-position: center top, center top;
+	background-size: 700px 50px, cover;
+	background-repeat: repeat-y, no-repeat;
+	background-attachment: fixed, fixed;
+	background-color: rgba(255, 255, 255, 0.8), none;
 }
 
 .overbackground {
 	width: 900px;
+	/*background-color: rgba(255, 255, 255, 0.8);*/
 	margin: 0px auto;
+	margin-top: 0px;
 }
 
 h1 {
-	font-family: ;
+	font-family: 'Lobster Two', cursive;
 	font-size: ;
 	margin: 30px 0px 30px 0px;
 	text-align: center;
+}
+
+@media (max-width: 500px) {
+	
 }
