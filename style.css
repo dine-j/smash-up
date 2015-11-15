@@ -1,0 +1,16 @@
+body {
+	background: url("background-image.jpg"), rgba(255, 255, 255, 0.8);
+	background-size: cover, 900px;
+}
+
+.overbackground {
+	width: 900px;
+	margin: 0px auto;
+}
+
+h1 {
+	font-family: ;
+	font-size: ;
+	margin: 30px 0px 30px 0px;
+	text-align: center;
+}
