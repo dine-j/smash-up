@@ -2,19 +2,122 @@
 <html>
 <head>
 	<title>Smash Up Race Distributor</title>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<script src="jquery-1.12.3.min.js"></script>
 </head>
 <body>
 	<div class="overbackground">
 		<h1>Smash Up Race Distributor</h1>
-		<form>
-			<div class="form-group">
-			    <label for="exampleInputEmail1">Combien de joueurs ?</label>
-			    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Entrer le nombre de joueurs">
-		  	</div>
-		  </form>
+		<div class="content">
+			<form>
+				<div class="form-group">
+				    <label>Combien de joueurs ?</label>
+				    <input type="number" id="playernumber" placeholder="Entrez le nombre de joueurs"></input>
+					</br></br>
+				    <div id="playerfield1">
+					    <label>Nom du joueur 1 ?</label>
+					    <input type="text" id="player1" placeholder="Entrez le nom du joueur 1">
+					</div>
+					<div id="playerfield2">
+					    <label>Nom du joueur 2 ?</label>
+					    <input type="text" id="player2" placeholder="Entrez le nom du joueur 2">
+				    </div>
+				    <div id="playerfield3">
+					    <label>Nom du joueur 3 ?</label>
+					    <input type="text" id="player3" placeholder="Entrez le nom du joueur 3">
+				    </div>
+				    <div id="playerfield4">
+					    <label>Nom du joueur 4 ?</label>
+					    <input type="text" id="player4" placeholder="Entrez le nom du joueur 4">
+				    </div>
+				    <div id="extensions">
+				    	<p>Jouer avec :</p>
+				    	<input type="checkbox" name="serieB">Série B</input>
+				    	</br>
+				    	<input type="checkbox" name="monstre">Monstres</input>
+				    	</br>
+				    	<input type="checkbox" name="minion">Trop minions</input>
+				    	</br>
+				    </div>
+				    <div id="results">
+				    </div>
+			  	</div>
+			</form>
+		</div>
 	</div>
+
+<script>
+	var racesBase = ["Pirates", "Ninja", "Zombies", "Robots", "Dinosaures", "Sorciers", "Petit Peuple", "Aliens"];
+	var serieBRaces = ["Voyageurs du temps", "Singes cyborgs", "Métamorphes", "Super espions"];
+	var monstreRaces = ["Vampires", "Fourmis géantes", "Loups-garous", "Savants fous"];
+	var minionRaces = ["Chats", "Fées", "Poneys", "Princesses"];
+	var races = racesBase;
+
+	$("#playerfield1").hide();
+	$("#playerfield2").hide();
+	$("#playerfield3").hide();
+	$("#playerfield4").hide();
+	$("#extensions").hide();
+	//$('button').hide();
+	//$('button').disable = true;
+	$("#results").hide();
+	
+	var playerNumber = document.getElementById("playernumber");
+	var playerNames = [];
+
+	playernumber.addEventListener("keydown", function(e) {
+		if(e.keyCode == 13) {
+			askNames(playerNumber.value);
+			//$('button').show();
+		}
+	});
+
+	player2.addEventListener("keydown", function(e) {
+		if(e.keyCode == 13) {
+			giveResults(playerNumber.value);
+		}
+	});
+
+	function askNames(number) {
+		for(i = 1; i <= number; ++i) {
+			$("#playerfield"+i).show();
+		}
+		$("#extensions").show();
+	};
+
+	if($("#serieB").checked) {
+		races = races.concat(serieBRaces);
+	}
+	if($("#monstre").checked) {
+		races = races.concat(monstreRaces);
+	}
+	if($("#minion").checked) {
+		races = races.concat(minionRaces);
+	}
+
+	function giveResults(numberOfPlayers) {
+		for(i = 1; i <= numberOfPlayers; ++i) {
+			playerNames[i] = document.getElementById("player" + i).value;
+			var playerRaces = get2RandomRaces();
+			var string = playerNames[i] + " jouera " + playerRaces[0] + " et " + playerRaces[1];
+			$("#results").append(string + "</br>");
+			$("#results").show();
+		}
+	}
+
+	function get2RandomRaces() {
+		var firstRace = Math.floor(Math.random() * races.length);
+		var secondRace;
+		do {
+			secondRace = Math.floor(Math.random() * races.length);
+		} while(secondRace == firstRace);
+		var choices = [];
+		choices[0] = races.slice(firstRace, firstRace + 1);
+		choices[1] = races.slice(secondRace, secondRace + 1);
+		return choices;
+	}
+</script>
 </body>
 </html>
