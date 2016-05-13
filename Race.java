@@ -10,9 +10,14 @@ public class Race
 	public Race()
 	{
 		String[] races = {"Pirates", "Ninja", "Zombies", "Robots", "Dinosaures", "Sorciers", "Petit Peuple", "Aliens"};
+		String[] extension3 = {"Chats", "Fées", "Poney", "Princesse"};
 		for(int i = 0; i < races.length; i++)
 		{
 			race.add(races[i]);
+		}
+		for(int i = 0; i < extension3.length; i++)
+		{
+			race.add(extension3[i]);
 		}
 	}
 	
