@@ -85,7 +85,6 @@
 		if(e.keyCode == 13) {
 			isExtensionSelected();
 			giveResults(playerNumber.value);
-			alert(races);
 		}
 	});
 
@@ -126,14 +125,16 @@
 	};
 
 	function get2RandomRaces() {
+		var choices = [];
 		var firstRace = Math.floor(Math.random() * races.length);
+		choices[0] = races.splice(firstRace, 1);
+
 		var secondRace;
 		do {
 			secondRace = Math.floor(Math.random() * races.length);
 		} while(secondRace == firstRace);
-		var choices = [];
-		choices[0] = races.splice(firstRace, 1);
 		choices[1] = races.splice(secondRace, 1);
+
 		return choices;
 	};
 </script>
