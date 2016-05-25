@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Exo:400,700' rel='stylesheet' type='text/css'>
 	<script src="jquery-1.12.3.min.js"></script>
 </head>
 <body>
@@ -118,7 +119,9 @@
 		for(i = 1; i <= numberOfPlayers; ++i) {
 			playerNames[i] = document.getElementById("player" + i).value;
 			var playerRaces = get2RandomRaces();
-			var string = playerNames[i] + " jouera " + playerRaces[0] + " et " + playerRaces[1];
+			var string = "<span class=\"playerName\">" + playerNames[i] 
+				+ "</span> jouera <span class=\"playedRace\">" + playerRaces[0] 
+				+ "</span> et <span class=\"playedRace\">" + playerRaces[1] + "</span>";
 			$("#results").append(string + "</br>");
 			$("#results").show();
 		}
