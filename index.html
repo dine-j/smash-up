@@ -76,7 +76,9 @@
 
 	player2.addEventListener("keydown", function(e) {
 		if(e.keyCode == 13) {
+			isExtensionSelected();
 			giveResults(playerNumber.value);
+			alert(races);
 		}
 	});
 
@@ -87,15 +89,17 @@
 		$("#extensions").show();
 	};
 
-	if($("#serieB").checked) {
-		races = races.concat(serieBRaces);
-	}
-	if($("#monstre").checked) {
-		races = races.concat(monstreRaces);
-	}
-	if($("#minion").checked) {
-		races = races.concat(minionRaces);
-	}
+	function isExtensionSelected() {
+		if($("input[name=serieB]").is(":checked")) {
+			races = races.concat(serieBRaces);
+		}
+		if($("input[name=monstre]").is(":checked")) {
+			races = races.concat(monstreRaces);
+		}
+		if($("input[name=minion]").is(":checked")) {
+			races = races.concat(minionRaces);
+		}
+	};
 
 	function giveResults(numberOfPlayers) {
 		for(i = 1; i <= numberOfPlayers; ++i) {
@@ -105,7 +109,7 @@
 			$("#results").append(string + "</br>");
 			$("#results").show();
 		}
-	}
+	};
 
 	function get2RandomRaces() {
 		var firstRace = Math.floor(Math.random() * races.length);
@@ -114,10 +118,10 @@
 			secondRace = Math.floor(Math.random() * races.length);
 		} while(secondRace == firstRace);
 		var choices = [];
-		choices[0] = races.slice(firstRace, firstRace + 1);
-		choices[1] = races.slice(secondRace, secondRace + 1);
+		choices[0] = races.splice(firstRace, 1);
+		choices[1] = races.splice(secondRace, 1);
 		return choices;
-	}
+	};
 </script>
 </body>
 </html>
