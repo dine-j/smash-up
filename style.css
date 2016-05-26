@@ -14,11 +14,24 @@ body {
 	margin-top: -40px;
 }
 
+.header {
+	padding-top: 50px;
+}
+
+#language {
+	vertical-align: right;
+	padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 h1 {
 	font-family: 'Lobster Two', cursive;
 	font-size: ;
 	margin: 30px 0px 30px 0px;
-	padding-top: 50px;
 	text-align: center;
 }
 
@@ -41,7 +54,17 @@ button:hover {
 	box-shadow: 0 3px 10px 0 rgba(0,0,0,0.24), 0 10px 43px 0 rgba(0,0,0,0.19);
 }
 
-input[type=text], input[type=number] {
+#playerNumberInput {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text] {
 	width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

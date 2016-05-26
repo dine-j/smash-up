@@ -12,7 +12,7 @@ $("#resultButton").hide();
 $("#extensions").hide();
 $("#results").hide();
 
-var playerNumber = document.getElementById("playerNumber");
+var playerNumber = document.getElementById("playerNumberInput");
 var playerNames = [];
 
 player2.addEventListener("keydown", function(e) {
