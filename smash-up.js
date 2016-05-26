@@ -12,18 +12,8 @@ $("#resultButton").hide();
 $("#extensions").hide();
 $("#results").hide();
 
-var playerNumber = document.getElementById("playerNumberInput");
+var playerNumber = document.getElementById("playerNumber");
 var playerNames = [];
-
-playerNumber.addEventListener("keydown", function(e) {
-	if(e.keyCode == 13) {
-		askNames(playerNumberInput.value);
-	}
-});
-
-$("#playerNumber button").click(function() {
-	askNames(playerNumberInput.value);
-});
 
 player2.addEventListener("keydown", function(e) {
 	if(e.keyCode == 13) {
@@ -37,13 +27,16 @@ $("#resultButton").click(function() {
 	giveResults(playerNumber.value);
 });
 
-function askNames(number) {
-	$("#playerNumber").hide();
-	for(i = 1; i <= number; ++i) {
-		$("#playerfield"+i).show();
+function askNames(option) {
+	var nb = option.value;
+	if(nb != "default") {
+		$("#playerNumber").hide();
+		for(i = 1; i <= nb; ++i) {
+			$("#playerfield"+i).show();
+		}
+		$("#extensions").show();
+		$("#resultButton").show();
 	}
-	$("#extensions").show();
-	$("#resultButton").show();
 };
 
 function isExtensionSelected() {

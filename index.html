@@ -10,15 +10,24 @@
 </head>
 <body>
 	<div class="overbackground">
-		<h1>Smash Up Race Distributor</h1>
+		<div class="header">
+			<select id="language">
+				<option value="french">Français</option>
+				<option value="english">English</option>
+			</select>
+			<h1>Smash Up Race Distributor</h1>
+		</div>
 		<div class="content">
 			<form>
 				<div class="form-group">
 					<div id="playerNumber">
 					    <label>Combien de joueurs ?</label>
-					    <input type="number" id="playerNumberInput" placeholder="Entrez le nombre de joueurs"></input>
-						</br>
-					    <button type="button">Entrer</button>
+					    <select id="playerNumber" onchange="askNames(this)">
+							<option value="default">Choisir un nombre</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
 					</div>
 					</br></br>
 				    <div id="playerfield1">
