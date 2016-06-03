@@ -19,13 +19,49 @@ body {
 }
 
 #language {
-	vertical-align: right;
+	float: right;
+	position: relative;
+	display: inline-block;
+}
+
+#current-language {
 	padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+	background-color: #f9f9f9;
+	cursor: pointer;
+	min-width: 130px;
+}
+
+.flag {
+	width: 25px;
+	height: 20px;
+}
+
+#language-content {
+	display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 20px;
+    z-index: 100;
+	min-width: 90px;
+}
+
+#language a {
+	color: black;
+    text-decoration: none;
+    display: block;
+}
+
+#language:hover #language-content {
+	display: block;
+}
+
+#language-content a:hover{
+	background-color: #f1f1f1;
 }
 
 h1 {
