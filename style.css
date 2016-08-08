@@ -1,5 +1,5 @@
 body {
-	background: url(""), url("background-image.jpg");
+	background: url(""), url("images/background-image.jpg");
 	background-position: center top, center top;
 	background-size: 700px 50px, cover;
 	background-repeat: repeat-y, no-repeat;
@@ -155,7 +155,7 @@ input[type=text] {
 	font-size: 25px;
 }
 
-.playedRace {
+.playedFaction {
 
 }
 

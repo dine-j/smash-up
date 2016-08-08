@@ -1,8 +1,8 @@
-var racesBase = ["Pirates", "Ninja", "Zombies", "Robots", "Dinosaures", "Sorciers", "Petit Peuple", "Aliens"];
-var serieBRaces = ["Voyageurs du temps", "Singes cyborgs", "Métamorphes", "Super espions"];
-var monstreRaces = ["Vampires", "Fourmis géantes", "Loups-garous", "Savants fous"];
-var minionRaces = ["Chats", "Fées", "Poneys", "Princesses"];
-var races = racesBase;
+var factionsBase = ["Pirates", "Ninja", "Zombies", "Robots", "Dinosaures", "Sorciers", "Petit Peuple", "Aliens"];
+var serieBFactions = ["Voyageurs du temps", "Singes cyborgs", "Métamorphes", "Super espions"];
+var monstreFactions = ["Vampires", "Fourmis géantes", "Loups-garous", "Savants fous"];
+var minionFactions = ["Chats", "Fées", "Poneys", "Princesses"];
+var factions = factionsBase;
 
 $("#playerfield1").hide();
 $("#playerfield2").hide();
@@ -41,38 +41,38 @@ function askNames(option) {
 
 function isExtensionSelected() {
 	if($("input[name=serieB]").is(":checked")) {
-		races = races.concat(serieBRaces);
+		factions = factions.concat(serieBFactions);
 	}
 	if($("input[name=monstre]").is(":checked")) {
-		races = races.concat(monstreRaces);
+		factions = factions.concat(monstreFactions);
 	}
 	if($("input[name=minion]").is(":checked")) {
-		races = races.concat(minionRaces);
+		factions = factions.concat(minionFactions);
 	}
 };
 
 function giveResults(numberOfPlayers) {
 	for(i = 1; i <= numberOfPlayers; ++i) {
 		playerNames[i] = document.getElementById("player" + i).value;
-		var playerRaces = get2RandomRaces();
+		var playerFactions = get2RandomFactions();
 		var string = "<span class=\"playerName\">" + playerNames[i] 
-			+ "</span> jouera <span class=\"playedRace\">" + playerRaces[0] 
-			+ "</span> et <span class=\"playedRace\">" + playerRaces[1] + "</span>";
+			+ "</span> jouera <span class=\"playedFaction\">" + playerFactions[0] 
+			+ "</span> et <span class=\"playedFaction\">" + playerFactions[1] + "</span>";
 		$("#results").append(string + "</br>");
 		$("#results").show();
 	}
 };
 
-function get2RandomRaces() {
+function get2RandomFactions() {
 	var choices = [];
-	var firstRace = Math.floor(Math.random() * races.length);
-	choices[0] = races.splice(firstRace, 1);
+	var firstFaction = Math.floor(Math.random() * factions.length);
+	choices[0] = factions.splice(firstFaction, 1);
 
-	var secondRace;
+	var secondFaction;
 	do {
-		secondRace = Math.floor(Math.random() * races.length);
-	} while(secondRace == firstRace);
-	choices[1] = races.splice(secondRace, 1);
+		secondFaction = Math.floor(Math.random() * factions.length);
+	} while(secondFaction == firstFaction);
+	choices[1] = factions.splice(secondFaction, 1);
 
 	return choices;
 };
