@@ -1,5 +1,5 @@
 body {
-	/*background: url(""), url("images/background-image.jpg");*/
+	background: url(""), url("images/background-image.jpg");
 	background-position: center top, center top;
 	background-size: 700px 50px, cover;
 	background-repeat: repeat-y, no-repeat;
@@ -78,6 +78,7 @@ button {
 	font-family: 'Exo';
 	font-size: 15px;
 	font-weight: bold;
+	margin-top: 15px;
 	padding: 5px 10px;
     transition-duration: 0.4s;
 	-webkit-transition-duration: 0.4s; 
@@ -110,7 +111,9 @@ input[type=text] {
 	width: 100%;
 }
 
+
 /* Checkboxes */
+
 /* Create checkbox */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
@@ -155,9 +158,20 @@ input[type=text] {
 	font-size: 25px;
 }
 
+#results {
+	margin-top: 25px;
+}
+
+/* Faction cards displaying */
+
+.faction-played {
+	margin: 0px 35px;
+}
+
 .faction-container {
 	display: inline-block;
 	height: 420px;
+	margin: 0px 40px;
     perspective: 800px;
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
@@ -166,7 +180,7 @@ input[type=text] {
 	width: 300px;
 }
 
-.playedFaction {
+.faction-card {
 	height: 100%;
 	position: absolute;
     transition: transform 1s;
@@ -181,7 +195,7 @@ input[type=text] {
 	width: 100%;
 }
 
-.playedFaction div {
+.faction-card div {
     display: block;
     height: 100%;
     position: absolute;
@@ -192,57 +206,94 @@ input[type=text] {
     width: 100%;
 }
 
-/*.playedFaction .front {
+/*.faction-card .front {
 	background-image: url("images/front-dino.jpg");
 	background-position: left top;
 }*/
 
-.playedFaction .front-dinosaurs {
-	background-image: url("images/factions/dino.jpg");
+.faction-card .front-dinosaurs {
+	background-image: url("images/factions/base/dino.jpg");
 	background-position: left top;
 }
-.playedFaction .front-aliens {
-	background-image: url("images/factions/aliens.jpg");
+.faction-card .front-aliens {
+	background-image: url("images/factions/base/aliens.jpg");
 	background-position: left top;
 }
-.playedFaction .front-ants {
-	background-image: url("images/factions/ants.jpg");
+.faction-card .front-ants {
+	background-image: url("images/factions/monster/ants.jpg");
 	background-position: left top;
 }
-.playedFaction .front-robots {
-	background-image: url("images/factions/robots.jpg");
+.faction-card .front-robots {
+	background-image: url("images/factions/base/robots.jpg");
 	background-position: left top;
 }
-.playedFaction .front-ninja {
-	background-image: url("images/factions/ninja.jpg");
+.faction-card .front-ninja {
+	background-image: url("images/factions/base/ninja.jpg");
 	background-position: left top;
 }
-.playedFaction .front-tricksters {
-	background-image: url("images/factions/tricksters.jpg");
+.faction-card .front-apes {
+	background-image: url("images/factions/sf/apes.jpg");
 	background-position: left top;
 }
-.playedFaction .front-wizards {
-	background-image: url("images/factions/wizards.jpg");
+.faction-card .front-tricksters {
+	background-image: url("images/factions/base/tricksters.jpg");
 	background-position: left top;
 }
-.playedFaction .front-zombies {
-	background-image: url("images/factions/zommbies.jpg");
+.faction-card .front-wizards {
+	background-image: url("images/factions/base/wizards.jpg");
 	background-position: left top;
 }
-.playedFaction .front-werewolves {
-	background-image: url("images/factions/werewolves.jpg");
+.faction-card .front-zombies {
+	background-image: url("images/factions/base/zombies.jpg");
 	background-position: left top;
 }
-.playedFaction .front-pirates {
-	background-image: url("images/factions/pirates.jpg");
+.faction-card .front-werewolves {
+	background-image: url("images/factions/monster/werewolves.jpg");
 	background-position: left top;
 }
-.playedFaction .front-vampires {
-	background-image: url("images/factions/vampires.jpg");
+.faction-card .front-pirates {
+	background-image: url("images/factions/base/pirates.jpg");
+	background-position: left top;
+}
+.faction-card .front-vampires {
+	background-image: url("images/factions/monster/vampires.jpg");
+	background-position: left top;
+}
+.faction-card .front-time-traveler {
+	background-image: url("images/factions/sf/time-traveler.jpg");
+	background-position: left top;
+}
+.faction-card .front-spies {
+	background-image: url("images/factions/sf/spies.jpg");
+	background-position: left top;
+}
+.faction-card .front-shapeshifters {
+	background-image: url("images/factions/sf/shapeshifters.jpg");
+	background-position: left top;
+}
+.faction-card .front-scientists {
+	background-image: url("images/factions/monster/scientists.jpg");
+	background-position: left top;
+}
+.faction-card .front-princesses {
+	background-image: url("images/factions/pretty/princesses.jpg");
+	background-position: left top;
+}
+.faction-card .front-fairies {
+	background-image: url("images/factions/pretty/fairies.jpg");
+	background-position: left top;
+}
+.faction-card .front-ponies {
+	background-image: url("images/factions/pretty/ponies.jpg");
+	background-position: left top;
+}
+.faction-card .front-cats {
+	background-image: url("images/factions/pretty/cats.jpg");
 	background-position: left top;
 }
 
-.playedFaction .back {
+
+.faction-card .back {
 	background-image: url("images/back-card.jpg");
 	-webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
@@ -250,7 +301,7 @@ input[type=text] {
     transform: rotateY( 180deg );
 }
 
-.playedFaction.flipped {
+.faction-card.flipped {
 	-webkit-transform: rotateY( 360deg );
     -moz-transform: rotateY( 360deg );
     -o-transform: rotateY( 360deg );

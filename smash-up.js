@@ -1,7 +1,7 @@
 var factionsBase = ["pirates", "ninja", "zombies", "robots", "dinosaurs", "wizards", "tricksters", "aliens"];
-var serieBFactions = ["Voyageurs du temps", "Singes cyborgs", "Métamorphes", "Super espions"];
-var monstreFactions = ["Vampires", "ants", "werewolves", "Savants fous"];
-var minionFactions = ["Chats", "Fées", "Poneys", "Princesses"];
+var serieBFactions = ["time-traveler", "apes", "shapeshifters", "spies"];
+var monstreFactions = ["vampires", "ants", "werewolves", "scientists"];
+var minionFactions = ["cats", "fairies", "ponies", "princesses"];
 var factions = factionsBase;
 
 $("#playerfield1").hide();
@@ -15,11 +15,9 @@ $("#results").hide();
 var playerNumber = document.getElementById("playerNumberInput");
 var playerNames = [];
 
-function flip() {
+function flip(card) {
 	console.log('yay');
-	//setTimeout(function() {
-		$('.playedFaction').toggleClass('flipped');
-  	// }, 2000);
+	$(card).toggleClass('flipped');
 };
 
 player2.addEventListener("keydown", function(e) {
@@ -63,13 +61,10 @@ function giveResults(numberOfPlayers) {
 		playerNames[i] = document.getElementById("player" + i).value;
 		var playerFactions = get2RandomFactions();
 		var string = "<span class=\"playerName\">" + playerNames[i] 
-			+ "</span> jouera </br> <div class=\"faction-container\"><div class=\"playedFaction\" onclick=\"flip()\"><div class=\"front-" + playerFactions[0] + "\"></div><div class=\"back\"></div></div></div>" 
-			+ " <div class=\"faction-container\"><div class=\"playedFaction\" onclick=\"flip()\"><div class=\"front-" + playerFactions[1] + "\"></div><div class=\"back\"></div></div></div>"  + "";
+			+ "</span> jouera <div class=\"faction-played\"><div class=\"faction-container\"><div class=\"faction-card\" id=\"" + playerFactions[0] + "\" onclick=\"flip(this)\" onmouseover=\"flip(this)\"><div class=\"front-" + playerFactions[0] + "\"></div><div class=\"back\"></div></div></div>" 
+			+ " <div class=\"faction-container\"><div class=\"faction-card\" id=\"" + playerFactions[0] + "\" onclick=\"flip(this)\" onmouseover=\"flip(this)\"><div class=\"front-" + playerFactions[1] + "\"></div><div class=\"back\"></div></div></div></div>"  + "";
 		$("#results").append(string + "</br>");
 		$("#results").show();
-		setTimeout(function() {
-			flip();
-  		}, 5000);
   	}
 };
 
