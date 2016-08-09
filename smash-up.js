@@ -16,7 +16,7 @@ var playerNumber = document.getElementById("playerNumberInput");
 var playerNames = [];
 
 function flip(card) {
-	console.log('yay');
+	//console.log('yay');
 	$(card).toggleClass('flipped');
 };
 
@@ -57,6 +57,7 @@ function isExtensionSelected() {
 };
 
 function giveResults(numberOfPlayers) {
+	$('#results').empty();
 	for(i = 1; i <= numberOfPlayers; ++i) {
 		playerNames[i] = document.getElementById("player" + i).value;
 		var playerFactions = get2RandomFactions();
