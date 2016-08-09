@@ -45,6 +45,7 @@ function askNames(option) {
 };
 
 function isExtensionSelected() {
+	factions = factionsBase;
 	if($("input[name=serieB]").is(":checked")) {
 		factions = factions.concat(serieBFactions);
 	}
@@ -79,6 +80,6 @@ function get2RandomFactions() {
 		secondFaction = Math.floor(Math.random() * factions.length);
 	} while(secondFaction == firstFaction);
 	choices[1] = factions.splice(secondFaction, 1);
-
+	
 	return choices;
 };
