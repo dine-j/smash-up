@@ -1,6 +1,6 @@
-var factionsBase = ["Pirates", "Ninja", "Zombies", "Robots", "Dinosaures", "Sorciers", "Petit Peuple", "Aliens"];
+var factionsBase = ["pirates", "ninja", "zombies", "robots", "dinosaurs", "wizards", "tricksters", "aliens"];
 var serieBFactions = ["Voyageurs du temps", "Singes cyborgs", "Métamorphes", "Super espions"];
-var monstreFactions = ["Vampires", "Fourmis géantes", "Loups-garous", "Savants fous"];
+var monstreFactions = ["Vampires", "ants", "werewolves", "Savants fous"];
 var minionFactions = ["Chats", "Fées", "Poneys", "Princesses"];
 var factions = factionsBase;
 
@@ -14,6 +14,13 @@ $("#results").hide();
 
 var playerNumber = document.getElementById("playerNumberInput");
 var playerNames = [];
+
+function flip() {
+	console.log('yay');
+	//setTimeout(function() {
+		$('.playedFaction').toggleClass('flipped');
+  	// }, 2000);
+};
 
 player2.addEventListener("keydown", function(e) {
 	if(e.keyCode == 13) {
@@ -56,11 +63,14 @@ function giveResults(numberOfPlayers) {
 		playerNames[i] = document.getElementById("player" + i).value;
 		var playerFactions = get2RandomFactions();
 		var string = "<span class=\"playerName\">" + playerNames[i] 
-			+ "</span> jouera <span class=\"playedFaction\">" + playerFactions[0] 
-			+ "</span> et <span class=\"playedFaction\">" + playerFactions[1] + "</span>";
+			+ "</span> jouera </br> <div class=\"faction-container\"><div class=\"playedFaction\" onclick=\"flip()\"><div class=\"front-" + playerFactions[0] + "\"></div><div class=\"back\"></div></div></div>" 
+			+ " <div class=\"faction-container\"><div class=\"playedFaction\" onclick=\"flip()\"><div class=\"front-" + playerFactions[1] + "\"></div><div class=\"back\"></div></div></div>"  + "";
 		$("#results").append(string + "</br>");
 		$("#results").show();
-	}
+		setTimeout(function() {
+			flip();
+  		}, 5000);
+  	}
 };
 
 function get2RandomFactions() {
