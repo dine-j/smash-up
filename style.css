@@ -206,11 +206,6 @@ input[type=text] {
     width: 100%;
 }
 
-/*.faction-card .front {
-	background-image: url("images/front-dino.jpg");
-	background-position: left top;
-}*/
-
 .faction-card .front-dinosaurs {
 	background-image: url("images/factions/base/dino.jpg");
 	background-position: left top;
