@@ -30,6 +30,11 @@ player2.addEventListener("keydown", function(e) {
 $("#resultButton").click(function() {
 	isExtensionSelected();
 	giveResults(playerNumber.value);
+	if(window.location.pathname == '/smash-up/index-en.html') {
+		$('#resultButton').html('Redo');
+	} else {
+		$('#resultButton').html('Relancer');
+	}
 });
 
 function askNames(option) {
